@@ -7,11 +7,11 @@
 
     function services($http) {
       this.getAll = function functionName() {
-        return $http.get('http://shrouded-sea-63114.herokuapp.com/coffee')
+        return $http.get('https://shrouded-sea-63114.herokuapp.com/coffee')
       }
 
       this.getOne = function (id) {
-        return $http.get('http://shrouded-sea-63114.herokuapp.com/coffee/' + id)
+        return $http.get('https://shrouded-sea-63114.herokuapp.com/coffee/' + id)
       }
 
       this.add = function (form) {
@@ -26,7 +26,7 @@
           price: form.price,
         }
 
-        return $http.post('http://shrouded-sea-63114.herokuapp.com/coffee', data, {
+        return $http.post('https://shrouded-sea-63114.herokuapp.com/coffee', data, {
           headers : {
               'Content-Type' : 'application/json'
             }
