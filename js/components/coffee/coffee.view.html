@@ -1,0 +1,31 @@
+<h1>{{coffeeCtrl.greeting}}</h1>
+<button type="button" ng-click="coffeeCtrl.toggleForm()">Add Coffee</button>
+<form ng-if="coffeeCtrl.form" name="Form" ng-submit="coffeeCtrl.add(Form)">
+  <div class="row">
+    <span class="col-md-6"><label>Name</label><input class="form-control" type="text" ng-model="Form.name"></span>
+    <span class="col-md-6"><label>Roaster</label><input class="form-control" type="text" ng-model="Form.roaster"></span>
+  </div>
+  <div class="row">
+    <span class="col-md-6"><label>Roast</label><input class="form-control" type="text" ng-model="Form.roast"></span>
+    <span class="col-md-6"><label>Caffeine</label><input class="form-control" type="text" ng-model="Form.caffeine"></span>
+  </div>
+  <div class="row">
+    <span class="col-md-6"><label>Price</label><input class="form-control" type="text" ng-model="Form.price"></span>
+    <span class="col-md-6"><label>Quantity</label><input class="form-control" type="text" ng-model="Form.quantity"></span>
+  </div>
+  <div class="row">
+    <span class="col-md-6"><label>Origin</label><input class="form-control" type="text" ng-model="Form.origin"></span>
+    <span class="col-md-6"><label>Decaf</label><input class="form-control" type="checkbox" ng-model="Form.decaf"></span>
+  </div>
+
+  <button type="submit">Add</button>
+</form>
+
+<select ng-model="coffeeCtrl.sortBy">
+  <option ng-repeat="opt in coffeeCtrl.options">{{opt}}</option>
+</select> <label>Search name:</label><input type="text" ng-model="coffeeCtrl.search">
+<div ng-repeat="coffee in coffeeCtrl.coffees | orderBy:coffeeCtrl.sortBy | search:coffeeCtrl.search">
+  <a ng-href="/#/{{coffee.id}}"><h3>Name: {{coffee.name}}</h3></a>
+  <h4>Origin: {{coffee.origin}}</h4>
+  <h4>Price: {{coffee.price}}</h4>
+</div>
